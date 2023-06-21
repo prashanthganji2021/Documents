@@ -1,3 +1,106 @@
+# ARRAYS
+
+- **Array.push()** :  The push() method adds one or more elements to the end of an array and returns the new length of the array.   
+Example: [1,2,3].push(4,5) // [1,2,3,4,5] -  push to the end of the array
+
+- **Array.pop()** : The pop() method removes the last element from an array and returns that element. This method changes the length of the array.
+Example: [1,2,3].pop() // [1,2] -  pop the last element from the array
+
+- **Array.shift()** : The shift() method removes the first element from an array and returns that removed element. This method changes the length of the array.
+Example: [1,2,3].shift() // [2,3] -  shift the first element from the array
+
+- **Array.unshift()** : The unshift() method adds one or more elements to the beginning of an array and returns the new length of the array.
+Example: [1,2,3].unshift(4,5) // [4,5,1,2,3] -  unshift to the beginning of the array
+
+- **Array.slice()** : The slice() method returns a shallow copy of a portion of an array into a new array object selected from start to end (end not included) where start and end represent the index of items in that array. The original array will not be modified.
+Example: [1,2,3,4,5].slice(1,3) // [2,3] -  slice from index 1 to index 3 (not included)
+
+- **Array.splice()** : The splice() method changes the contents of an array by removing or replacing existing elements and/or adding new elements in place.
+Example: [1,2,3,4,5].splice(1,3) // [2,3,4] -  splice from index 1 to index 3 (not included)
+
+- **Array.concat()** : The concat() method is used to merge two or more arrays. This method does not change the existing arrays, but instead returns a new array.
+Example: [1,2,3].concat([4,5]) // [1,2,3,4,5] -  concat two arrays
+
+
+- **Array.reduce()** : The reduce() method executes a reducer function (that you provide) on each element of the array, resulting in a single output value.
+Example: [1,2,3].reduce((sum, num) => sum + num, 0) // 6 -  sum of all elements in the array
+
+- **Array.filter()** : The filter() method creates a new array with all elements that pass the test implemented by the provided function.
+Example: [1,2,3,4,5].filter(num => num % 2 === 0) // [2,4] -  filter even numbers from the array
+
+- **Array.map()** : The map() method creates a new array populated with the results of calling a provided function on every element in the calling array.
+Example: [1,2,3,4,5].map(num => num ** 2) // [2,4,6,8,10] -  multiply each element by 2
+
+- **Array.forEach()** : The forEach() method executes a provided function once for each array element.
+Example: [1,2,3,4,5].forEach(num => console.log(num)) // 1 2 3 4 5 -  print each element
+
+- **Array.every()** : The every() method tests whether all elements in the array pass the test implemented by the provided function. It returns a Boolean value.
+Example: [1,2,3,4,5].every(num => num > 0) // true -  check if all elements are greater than 0
+
+- **Array.some()** : The some() method tests whether at least one element in the array passes the test implemented by the provided function. It returns a Boolean value.
+Example: [1,2,3,4,5].some(num => num > 3) // true -  check if at least one element is greater than 3
+
+- **Array.find()** : The find() method returns the value of the first element in the provided array that satisfies the provided testing function.
+Example: [1,2,3,4,5].find(num => num > 3) // 4 -  find the first element greater than 3
+
+- **Array.findIndex()** : The findIndex() method returns the index of the first element in the array that satisfies the provided testing function. Otherwise, it returns -1, indicating that no element passed the test.
+Example: [1,2,3,4,5].findIndex(num => num > 3) // 3 -  find the index of the first element greater than 3
+
+- **Array.includes()** : The includes() method determines whether an array includes a certain value among its entries, returning true or false as appropriate.
+Example: [1,2,3,4,5].includes(3) // true -  check if the array includes 3
+
+- **Array.reverse()** : The reverse() method reverses an array in place. The first array element becomes the last, and the last array element becomes the first.
+Example: [1,2,3,4,5].reverse() // [5,4,3,2,1] -  reverse the array
+
+- **Array.join()** : The join() method creates and returns a new string by concatenating all of the elements in an array (or an array-like object), separated by commas or a specified separator string.
+Example: [1,2,3,4,5].join() // "1,2,3,4,5" -  join the array elements with a comma
+
+- **Array.toString()** : The toString() method returns a string representing the specified array and its elements.
+Example: [1,2,3,4,5].toString() // "1,2,3,4,5" -  convert the array to a string
+
+- **Array.indexOf()** : The indexOf() method returns the first index at which a given element can be found in the array, or -1 if it is not present.
+Example: [1,2,3,4,5].indexOf(3) // 2 -  find the index of 3
+
+- **Array.lastIndexOf()** : The lastIndexOf() method returns the last index at which a given element can be found in the array, or -1 if it is not present. The array is searched backwards, starting at fromIndex.
+Example: [1,2,3,4,5].lastIndexOf(3) // 2 -  find the last index of 3
+
+- **Array.fill()** : The fill() method fills (modifies) all the elements of an array from a start index (default zero) to an end index (default array length) with a static value. It returns the modified array.
+Example: [1,2,3,4,5].fill(0) // [0,0,0,0,0] -  fill the array with 0
+
+- **Array.flat()** : The flat() method creates a new array with all sub-array elements concatenated into it recursively up to the specified depth.
+Example: [1,2,[3,4,[5,6]]].flat(2) // [1,2,3,4,5,6] -  flatten the array
+
+- **Array.flatMap()** : The flatMap() method first maps each element using a mapping function, then flattens the result into a new array. It is identical to a map() followed by a flat() of depth 1, but flatMap() is often quite useful, as merging both into one method is slightly more efficient.
+Example: [1,2,3,4,5].flatMap(num => [num ** 2]) // [2,4,6,8,10] -  multiply each element by 2 and flatten the array
+
+- **Array.from()** : The **Array.from() static method creates a new, shallow-copied Array instance from an array-like or iterable object.
+Example: **Array.from("hello") // ["h","e","l","l","o"] -  convert a string to an array
+
+- **Array.isArray()** : The **Array.isArray() method determines whether the passed value is an **Array.
+Example: **Array.isArray([1,2,3]) // true -  check if the value is an array
+
+- **Array.of()** : The **Array.of() method creates a new Array instance from a variable number of arguments, regardless of number or type of the arguments.
+Example: **Array.of(1,2,3) // [1,2,3] -  create an array from the arguments
+
+- **Array.keys()** : The keys() method returns a new Array Iterator object that contains the keys for each index in the array.
+Example: [1,2,3].keys() // Array Iterator {} -  get the keys of the array
+
+- **Array.values()** : The values() method returns a new Array Iterator object that contains the values for each index in the array.
+Example: [1,2,3].values() // Array Iterator {} -  get the values of the array
+
+- **Array.entries()** : The entries() method returns a new Array Iterator object that contains the key/value pairs for each index in the array.
+Example: [1,2,3].entries() // Array Iterator {} -  get the key/value pairs of the array
+
+- **Array.copyWithin()** : The copyWithin() method shallow copies part of an array to another location in the same array and returns it without modifying its length.
+Example: [1,2,3,4,5].copyWithin(0,3) // [4,5,3,4,5] -  copy the elements from index 3 to the start of the array
+
+- **Array.sort()** : The sort() method sorts the elements of an array in place and returns the sorted array. The default sort order is ascending, built upon converting the elements into strings, then comparing their sequences of UTF-16 code units values.
+Example: [1,2,3,4,5].sort((a,b) => a-b) // [1,2,3,4,5] -  sort the array in ascending order
+Example: [1,2,3,4,5].sort((a,b) => b-a) // [5,4,3,2,1] -  sort the array in descending order
+
+
+
+
 
 1. Find the maximum element in an array:
 ```javascript
@@ -363,110 +466,6 @@ const array = [5, 8, 3, 2, 10];
 const smallestSum = findSmallestSum(array);
 console.log(smallestSum); // Output: 5
 ```
-
-
-<!-  from all about javascript Q&A  concept Covered are - >
-
-- **Array.push()** :  The push() method adds one or more elements to the end of an array and returns the new length of the array.   
-Example: [1,2,3].push(4,5) // [1,2,3,4,5] -  push to the end of the array
-
-- **Array.pop()** : The pop() method removes the last element from an array and returns that element. This method changes the length of the array.
-Example: [1,2,3].pop() // [1,2] -  pop the last element from the array
-
-- **Array.shift()** : The shift() method removes the first element from an array and returns that removed element. This method changes the length of the array.
-Example: [1,2,3].shift() // [2,3] -  shift the first element from the array
-
-- **Array.unshift()** : The unshift() method adds one or more elements to the beginning of an array and returns the new length of the array.
-Example: [1,2,3].unshift(4,5) // [4,5,1,2,3] -  unshift to the beginning of the array
-
-- **Array.slice()** : The slice() method returns a shallow copy of a portion of an array into a new array object selected from start to end (end not included) where start and end represent the index of items in that array. The original array will not be modified.
-Example: [1,2,3,4,5].slice(1,3) // [2,3] -  slice from index 1 to index 3 (not included)
-
-- **Array.splice()** : The splice() method changes the contents of an array by removing or replacing existing elements and/or adding new elements in place.
-Example: [1,2,3,4,5].splice(1,3) // [2,3,4] -  splice from index 1 to index 3 (not included)
-
-- **Array.concat()** : The concat() method is used to merge two or more arrays. This method does not change the existing arrays, but instead returns a new array.
-Example: [1,2,3].concat([4,5]) // [1,2,3,4,5] -  concat two arrays
-
-
-- **Array.reduce()** : The reduce() method executes a reducer function (that you provide) on each element of the array, resulting in a single output value.
-Example: [1,2,3].reduce((sum, num) => sum + num, 0) // 6 -  sum of all elements in the array
-
-- **Array.filter()** : The filter() method creates a new array with all elements that pass the test implemented by the provided function.
-Example: [1,2,3,4,5].filter(num => num % 2 === 0) // [2,4] -  filter even numbers from the array
-
-- **Array.map()** : The map() method creates a new array populated with the results of calling a provided function on every element in the calling array.
-Example: [1,2,3,4,5].map(num => num ** 2) // [2,4,6,8,10] -  multiply each element by 2
-
-- **Array.forEach()** : The forEach() method executes a provided function once for each array element.
-Example: [1,2,3,4,5].forEach(num => console.log(num)) // 1 2 3 4 5 -  print each element
-
-- **Array.every()** : The every() method tests whether all elements in the array pass the test implemented by the provided function. It returns a Boolean value.
-Example: [1,2,3,4,5].every(num => num > 0) // true -  check if all elements are greater than 0
-
-- **Array.some()** : The some() method tests whether at least one element in the array passes the test implemented by the provided function. It returns a Boolean value.
-Example: [1,2,3,4,5].some(num => num > 3) // true -  check if at least one element is greater than 3
-
-- **Array.find()** : The find() method returns the value of the first element in the provided array that satisfies the provided testing function.
-Example: [1,2,3,4,5].find(num => num > 3) // 4 -  find the first element greater than 3
-
-- **Array.findIndex()** : The findIndex() method returns the index of the first element in the array that satisfies the provided testing function. Otherwise, it returns -1, indicating that no element passed the test.
-Example: [1,2,3,4,5].findIndex(num => num > 3) // 3 -  find the index of the first element greater than 3
-
-- **Array.includes()** : The includes() method determines whether an array includes a certain value among its entries, returning true or false as appropriate.
-Example: [1,2,3,4,5].includes(3) // true -  check if the array includes 3
-
-- **Array.reverse()** : The reverse() method reverses an array in place. The first array element becomes the last, and the last array element becomes the first.
-Example: [1,2,3,4,5].reverse() // [5,4,3,2,1] -  reverse the array
-
-- **Array.join()** : The join() method creates and returns a new string by concatenating all of the elements in an array (or an array-like object), separated by commas or a specified separator string.
-Example: [1,2,3,4,5].join() // "1,2,3,4,5" -  join the array elements with a comma
-
-- **Array.toString()** : The toString() method returns a string representing the specified array and its elements.
-Example: [1,2,3,4,5].toString() // "1,2,3,4,5" -  convert the array to a string
-
-- **Array.indexOf()** : The indexOf() method returns the first index at which a given element can be found in the array, or -1 if it is not present.
-Example: [1,2,3,4,5].indexOf(3) // 2 -  find the index of 3
-
-- **Array.lastIndexOf()** : The lastIndexOf() method returns the last index at which a given element can be found in the array, or -1 if it is not present. The array is searched backwards, starting at fromIndex.
-Example: [1,2,3,4,5].lastIndexOf(3) // 2 -  find the last index of 3
-
-- **Array.fill()** : The fill() method fills (modifies) all the elements of an array from a start index (default zero) to an end index (default array length) with a static value. It returns the modified array.
-Example: [1,2,3,4,5].fill(0) // [0,0,0,0,0] -  fill the array with 0
-
-- **Array.flat()** : The flat() method creates a new array with all sub-array elements concatenated into it recursively up to the specified depth.
-Example: [1,2,[3,4,[5,6]]].flat(2) // [1,2,3,4,5,6] -  flatten the array
-
-- **Array.flatMap()** : The flatMap() method first maps each element using a mapping function, then flattens the result into a new array. It is identical to a map() followed by a flat() of depth 1, but flatMap() is often quite useful, as merging both into one method is slightly more efficient.
-Example: [1,2,3,4,5].flatMap(num => [num ** 2]) // [2,4,6,8,10] -  multiply each element by 2 and flatten the array
-
-- **Array.from()** : The **Array.from() static method creates a new, shallow-copied Array instance from an array-like or iterable object.
-Example: **Array.from("hello") // ["h","e","l","l","o"] -  convert a string to an array
-
-- **Array.isArray()** : The **Array.isArray() method determines whether the passed value is an **Array.
-Example: **Array.isArray([1,2,3]) // true -  check if the value is an array
-
-- **Array.of()** : The **Array.of() method creates a new Array instance from a variable number of arguments, regardless of number or type of the arguments.
-Example: **Array.of(1,2,3) // [1,2,3] -  create an array from the arguments
-
-- **Array.keys()** : The keys() method returns a new Array Iterator object that contains the keys for each index in the array.
-Example: [1,2,3].keys() // Array Iterator {} -  get the keys of the array
-
-- **Array.values()** : The values() method returns a new Array Iterator object that contains the values for each index in the array.
-Example: [1,2,3].values() // Array Iterator {} -  get the values of the array
-
-- **Array.entries()** : The entries() method returns a new Array Iterator object that contains the key/value pairs for each index in the array.
-Example: [1,2,3].entries() // Array Iterator {} -  get the key/value pairs of the array
-
-- **Array.copyWithin()** : The copyWithin() method shallow copies part of an array to another location in the same array and returns it without modifying its length.
-Example: [1,2,3,4,5].copyWithin(0,3) // [4,5,3,4,5] -  copy the elements from index 3 to the start of the array
-
-- **Array.sort()** : The sort() method sorts the elements of an array in place and returns the sorted array. The default sort order is ascending, built upon converting the elements into strings, then comparing their sequences of UTF-16 code units values.
-Example: [1,2,3,4,5].sort((a,b) => a-b) // [1,2,3,4,5] -  sort the array in ascending order
-Example: [1,2,3,4,5].sort((a,b) => b-a) // [5,4,3,2,1] -  sort the array in descending order
-
-
-
 
 
 
