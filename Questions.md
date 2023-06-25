@@ -46,4 +46,62 @@ for (let i = 0; i < arr.length; i++) {
 // i = 1 --> 10 > arr[0] = 5 --> true && 10 > arr[2] = 20 --> false, so 10 is not pushed into the output array,
 // i = 2 --> 20 > arr[1] = 10 --> true && 20 > arr[3] = 15 --> true, so 20 is pushed into the output array,
 // i = 3 --> 15 > arr[2] = 20 --> false && 15 > arr[4] = undefined --> false, so 15 is not pushed into the output array
-``
+```
+
+## 2. Program to find the minimum (or maximum) element of an array
+``` javascript
+// Given an array, write functions to find the minimum and maximum elements in it. 
+
+// The most simplest way to find min and max value of an element 
+
+let arrayTest = [5, 10, 20, 15]
+
+let min = Math.min(...arrayTest)
+// The spread operator allows an expression to be expanded in places where multiple arguments (for function calls) or multiple elements (for array literals) are expected.
+// Math.min(5, 10, 20, 15) --> 5
+let max = Math.max(...arrayTest)
+// Math.max(5, 10, 20, 15) --> 20
+
+// method 2
+let minTwo = arrayTest.reduce((acc, x) => acc < x ? acc : x)
+// acc: the accumulator accumulates the callback's return values; it is the accumulated value previously returned in the last invocation of the callback, or initialValue, if supplied (see below).
+// x: the current element being processed in the array
+// 5, 10 --> 5, 20 --> 5, 15 --> minTwo = 5
+let maxTwo = arrayTest.reduce((acc, x) => acc > x ? acc : x)
+// acc: the accumulator accumulates the callback's return values; it is the accumulated value previously returned in the last invocation of the callback, or initialValue, if supplied (see below).
+// x: the current element being processed in the array
+// 5, 10 --> 10, 20 --> 20, 15 --> maxTwo = 20
+
+// method 3
+let minThree = arrayTest.sort((a,b) => a - b)[0]
+// sort will sort the array in ascending order
+// a - b --> 5 - 10 = -5 --> -5 - 20 = -25 --> -25 - 15 = -40
+
+let maxThree = arrayTest.sort((a,b) => b - a)[0]
+// sort will sort the array in descending order
+// b - a --> 10 - 5 = 5 --> 20 - 5 = 15 --> 15 - 5 = 10
+
+// method 4
+let minFour = arrayTest.sort((a,b) => a > b ? 1 : -1)[0]
+// sort will sort the array in ascending order
+// a > b ? 1 : -1 --> 5 > 10 ? 1 : -1 --> -1 --> 10 > 20 ? 1 : -1 --> -1 --> 20 > 15 ? 1 : -1 --> 1
+
+let maxFour = arrayTest.sort((a,b) => a > b ? -1 : 1)[0]
+// sort will sort the array in descending order
+// a > b ? -1 : 1 --> 5 > 10 ? -1 : 1 --> 1 --> 10 > 20 ? -1 : 1 --> 1 --> 20 > 15 ? -1 : 1 --> -1
+
+// method 5
+let minFive = arrayTest.sort((a,b) => a - b).shift()
+// sort will sort the array in ascending order
+// a - b --> 5 - 10 = -5 --> -5 - 20 = -25 --> -25 - 15 = -40
+// shift will remove the first element of the array and return that element
+// 5, 10, 15, 20 --> 10, 15, 20 --> 15, 20 --> 20 --> minFive = 5
+
+let maxFive = arrayTest.sort((a,b) => b - a).shift()
+
+// sort will sort the array in descending order
+// b - a --> 10 - 5 = 5 --> 20 - 5 = 15 --> 15 - 5 = 10
+// shift will remove the first element of the array and return that element
+// 5, 10, 15, 20 --> 10, 15, 20 --> 15, 20 --> 20 --> maxFive = 20
+```
+
