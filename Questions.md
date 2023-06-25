@@ -105,3 +105,44 @@ let maxFive = arrayTest.sort((a,b) => b - a).shift()
 // 5, 10, 15, 20 --> 10, 15, 20 --> 15, 20 --> 20 --> maxFive = 20
 ```
 
+
+## 3. Write a program to reverse an array or string
+``` javascript
+// Given an array (or string), the task is to reverse the array/string.
+// Examples : 
+// Input  : arr[] = {1, 2, 3}  
+// Output : arr[] = {3, 2, 1}  
+let arrayTestTwo = [1, 2, 3]
+// method 1
+let outputSeven = arrayTestTwo.reverse()
+// reverse will reverse the array
+// [1, 2, 3] --> [3, 2, 1] --> outputSeven = [3, 2, 1]
+
+// method 2
+let outputEight = arrayTestTwo.reduce((acc, x) => [x, ...acc], [])
+// acc: the accumulator accumulates the callback's return values; it is the accumulated value previously returned in the last invocation of the callback, or initialValue, if supplied (see below).
+// x: the current element being processed in the array
+// [], 1 --> [1] --> [2, 1] --> [3, 2, 1] --> outputEight = [3, 2, 1]
+
+// method 3
+let outputNine = []
+for (let i = arrayTestTwo.length - 1; i >= 0; i--) {
+  outputNine.push(arrayTestTwo[i])
+}
+
+// i = 2 --> outputNine = [3] --> i = 1 --> outputNine = [3, 2] --> i = 0 --> outputNine = [3, 2, 1] --> outputNine = [3, 2, 1]
+
+// method 4
+let outputTen = []
+arrayTestTwo.forEach(x => outputTen.unshift(x))
+// x: the current element being processed in the array
+// 1 --> [1] --> 2 --> [2, 1] --> 3 --> [3, 2, 1] --> outputTen = [3, 2, 1]
+
+// method 5
+let outputEleven = []
+for (let i = 0; i < arrayTestTwo.length; i++) {
+  outputEleven.unshift(arrayTestTwo[i])
+}
+```
+
+
