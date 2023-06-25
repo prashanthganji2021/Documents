@@ -291,3 +291,167 @@ for (let i = 0; i < arrayTestSix.length; i++) {
 // i = 4 --> temp = 9 --> j = 0 --> 0 >= 0 --> true --> arrayTestSix = [0, 9, 12, 14, 23]
 // i = 4 --> temp = 9 --> j = -1 --> -1 >= 0 --> false --> arrayTestSix = [0, 9, 12, 14, 23]
 ```
+
+
+## 5. Longest alternating subsequence
+``` javascript
+// A sequence {X1, X2, .. Xn} is an alternating sequence if its elements satisfy one of the following relations : 
+//   X1 < X2 > X3 < X4 > X5 < …. xn or 
+//   X1 > X2 < X3 > X4 < X5 > …. xn
+// Input: arr[] = {10, 22, 9, 33, 49, 50, 31, 60}
+// Output: 6
+// Explanation: The subsequences {10, 22, 9, 33, 31, 60} or
+// {10, 22, 9, 49, 31, 60} or {10, 22, 9, 50, 31, 60}
+// are longest subsequence of length 6
+
+function longestAlternatingSubsequence(arr) {
+  const length = arr.reduce((acc, _, index) => {
+    if (
+      (index > 1 && arr[index] > arr[index - 1] && arr[index - 1] < arr[index - 2]) ||
+      (index > 1 && arr[index] < arr[index - 1] && arr[index - 1] > arr[index - 2])
+    ) {
+      acc.push(arr[index]);
+    }
+    return acc;
+  }, []).length;
+
+  return length + 2; // Add 2 for the initial two elements
+}
+
+// Example usage:
+// acc: the accumulator accumulates the callback's return values; it is the accumulated value previously returned in the last invocation of the callback, or initialValue, if supplied (see below).
+// x: the current element being processed in the array no use so _ is used instead
+// , i: the index of the current element being processed in the array
+// [], 10, 0 --> [], 22, 1 --> [], 9, 2 --> [9], 33, 3 --> [9, 33], 49, 4 --> [9, 33, 49], 50, 5 --> [9, 33, 49, 50], 31, 6 --> [9, 33, 49, 50, 31], 60, 7 --> [9, 33, 49, 50, 31, 60] --> length = 6
+
+
+// Example usage:
+const arrl = [10, 22, 9, 33, 49, 50, 31, 60];
+const length = longestAlternatingSubsequence(arrl);
+console.log(length); // Output: 6
+```
+
+## 6. Given an integer array of coins[ ] of size N representing different types of currency and an integer sum, The task is to find the number of ways to make sum by using different combinations from coins[].  
+
+``` javascript
+
+// Note: Assume that you have an infinite supply of each type of coin. 
+
+// Examples: 
+
+// Input: sum = 4, coins[] = {1,2,3}, 
+// Output: 4
+// Explanation: there are four solutions: {1, 1, 1, 1}, {1, 1, 2}, {2, 2}, {1, 3}. 
+
+
+// Input: sum = 10, coins[] = {2, 5, 3, 6}
+// Output: 5
+// Explanation: There are five solutions: 
+// {2,2,2,2,2}, {2,2,3,3}, {2,2,6}, {2,3,5} and {5,5}.
+
+function countCoinChangeWays(sum, coins) {
+  const dp = new Array(sum + 1).fill(0); // Create an array to store the number of ways for each sum
+  dp[0] = 1; // Base case: There is one way to make sum 0 (by not selecting any coin)
+
+  for (const coin of coins) { // Iterate over each coin in the coins array
+    for (let i = coin; i <= sum; i++) { // Iterate from coin value to the target sum
+      dp[i] += dp[i - coin]; // Update the number of ways at index i by adding the number of ways at index (i - coin)
+    }
+  }
+ // [ 1, 1, 2, 3, 4 ]   [ 1, 0, 1, 1, 1, 2, 3, 2, 4, 4, 5 ]
+  return dp[sum]; // Return the total number of ways to make the given sum
+}
+
+// Example usage:
+const sum = 4;
+const coins = [1, 2, 3];
+const ways = countCoinChangeWays(sum, coins);
+console.log(ways); // Output: 4
+
+const sum2 = 10;
+const coins2 = [2, 5, 3, 6];
+const ways2 = countCoinChangeWays(sum2, coins2);
+console.log(ways2); // Output: 5
+
+
+
+function countCoinChangeWaysP(sum, coins) {
+  const dp = new Array(sum + 1).fill(0); // Create an array to store the number of ways for each sum
+  dp[0] = 1; // Base case: There is one way to make sum 0 (by not selecting any coin)
+
+  for (const coin of coins) { // Iterate over each coin in the coins array
+    for (let i = coin; i <= sum; i++) { // Iterate from coin value to the target sum
+      dp[i] += dp[i - coin]; // Update the number of ways at index i by adding the number of ways at index (i - coin)
+    }
+  }
+  return dp
+}
+
+// Example usage:
+const sumP = 4;
+const coinsP = [1, 2, 3];
+const waysP = countCoinChangeWaysP(sumP, coinsP);
+console.log(waysP); // Output: [ 1, 1, 2, 3, 4 ]
+```
+
+## 7. Find the smallest positive integer value that cannot be represented as sum of any subset of a given array
+``` javascript
+
+// Given an array of positive numbers, find the smallest positive integer value that cannot be represented as the sum of elements of any subset of a given set. 
+
+function findSmallestInteger(arr) {
+  arr.sort((a, b) => a - b); // Sort the array in ascending order
+  let result = 1; // Initialize the smallest positive integer that cannot be represented
+
+  for (const num of arr) {
+    if (num > result) {
+      return result; // Found the smallest positive integer that cannot be represented
+    }
+    result += num;
+  }
+
+  return result;
+}
+
+// Examples:
+const arr1 = [1, 10, 3, 11, 6, 15];
+console.log(findSmallestInteger(arr1)); // Output: 2
+// explanation:
+//  sort the array in ascending order --> [1, 3, 6, 10, 11, 15]
+//  result = 1 , num = 1 --> 1 > 1 --> false --> result = 1 + 1 = 2
+//  result = 2 , num = 3 --> 3 > 2 --> true --> return result = 2
+
+
+const arr2 = [1, 1, 1, 1];
+console.log(findSmallestInteger(arr2)); // Output: 5
+
+const arr3 = [1, 1, 3, 4];
+console.log(findSmallestInteger(arr3)); // Output: 10
+// explanation:
+//  sort the array in ascending order --> [1, 1, 3, 4]
+//  result = 1 , num = 1 --> 1 > 1 --> false --> result = 1 + 1 = 2
+//  result = 2 , num = 1 --> 1 > 2 --> false --> result = 2 + 1 = 3
+//  result = 3 , num = 3 --> 3 > 3 --> false --> result = 3 + 3 = 6
+//  result = 6 , num = 4 --> 4 > 6 --> false --> result = 6 + 4 = 10
+//  result = 10 , num = undefined --> false --> result = 10
+
+const arr4 = [1, 2, 5, 10, 20, 40];
+console.log(findSmallestInteger(arr4)); // Output: 4
+// explanation:
+//  sort the array in ascending order --> [1, 2, 5, 10, 20, 40]
+//  result = 1 , num = 1 --> 1 > 1 --> false --> result = 1 + 1 = 2
+//  result = 2 , num = 2 --> 2 > 2 --> false --> result = 2 + 2 = 4
+//  result = 4 , num = 5 --> 5 > 4 --> true --> return result = 4
+
+const arr5 = [1, 2, 3, 4, 5, 6];
+console.log(findSmallestInteger(arr5)); // Output: 22
+// explanation:
+//  sort the array in ascending order --> [1, 2, 3, 4, 5, 6]
+//  result = 1 , num = 1 --> 1 > 1 --> false --> result = 1 + 1 = 2
+//  result = 2 , num = 2 --> 2 > 2 --> false --> result = 2 + 2 = 4
+//  result = 4 , num = 3 --> 3 > 4 --> false --> result = 4 + 3 = 7
+//  result = 7 , num = 4 --> 4 > 7 --> false --> result = 7 + 4 = 11
+//  result = 11 , num = 5 --> 5 > 11 --> false --> result = 11 + 5 = 16
+//  result = 16 , num = 6 --> 6 > 16 --> false --> result = 16 + 6 = 22
+//  result = 22 , num = undefined --> false --> result = 22
+```
