@@ -145,4 +145,148 @@ for (let i = 0; i < arrayTestTwo.length; i++) {
 }
 ```
 
+## 4 program to sort an array in ascending order
 
+``` javascript
+
+// Given an array arr[] of size N, the task is to sort this array in ascending order in C.
+// Examples: 
+
+// Input: arr[] = {0, 23, 14, 12, 9}
+// Output: {0, 9, 12, 14, 23}
+
+// Input: arr[] = {7, 0, 2}
+// Output: {0, 2, 7}
+// Recommended: Please try your approach on {IDE} first, before moving on to the solution.
+// Approach: 
+// There are many ways by which the array can be sorted in ascending order, like:  
+
+// Selection Sort
+// Bubble Sort
+// Merge Sort
+// Radix Sort
+// Insertion Sort, etc
+
+// method 1 : Selection Sort
+let arrayTestThree = [0, 23, 14, 12, 9]
+let outputTwelve = []
+for (let i = 0; i < arrayTestThree.length; i++) {
+  let min = Math.min(...arrayTestThree)
+  outputTwelve.push(min)
+  arrayTestThree.splice(arrayTestThree.indexOf(min), 1)
+}
+
+// i = 0 --> min = 0 --> outputTwelve = [0] --> arrayTestThree = [23, 14, 12, 9]
+// i = 1 --> min = 9 --> outputTwelve = [0, 9] --> arrayTestThree = [23, 14, 12]
+// i = 2 --> min = 12 --> outputTwelve = [0, 9, 12] --> arrayTestThree = [23, 14]
+// i = 3 --> min = 14 --> outputTwelve = [0, 9, 12, 14] --> arrayTestThree = [23]
+// i = 4 --> min = 23 --> outputTwelve = [0, 9, 12, 14, 23] --> arrayTestThree = []
+
+// method 2 : Bubble Sort
+let arrayTestFour = [0, 23, 14, 12, 9]
+let outputThirteen = []
+for (let i = 0; i < arrayTestFour.length; i++) {
+  for (let j = 0; j < arrayTestFour.length; j++) {
+    if (arrayTestFour[j] > arrayTestFour[j+1]) {
+      let temp = arrayTestFour[j]
+      arrayTestFour[j] = arrayTestFour[j+1]
+      arrayTestFour[j+1] = temp
+    }
+  }
+}
+// i = 0, j = 0 --> 0 > 23 --> false --> j = 1 --> 23 > 14 --> true --> temp = 23 --> arrayTestFour = [0, 14, 23, 12, 9]
+// i = 0, j = 1 --> 14 > 23 --> false --> j = 2 --> 23 > 12 --> true --> temp = 23 --> arrayTestFour = [0, 14, 12, 23, 9]
+// i = 0, j = 2 --> 12 > 23 --> false --> j = 3 --> 23 > 9 --> true --> temp = 23 --> arrayTestFour = [0, 14, 12, 9, 23]
+// i = 0, j = 3 --> 9 > 23 --> false --> j = 4 --> 23 > undefined --> false --> arrayTestFour = [0, 14, 12, 9, 23]
+
+// i = 1, j = 0 --> 0 > 14 --> false --> j = 1 --> 14 > 12 --> true --> temp = 14 --> arrayTestFour = [0, 12, 14, 9, 23]
+// i = 1, j = 1 --> 12 > 14 --> false --> j = 2 --> 14 > 9 --> true --> temp = 14 --> arrayTestFour = [0, 12, 9, 14, 23]
+// i = 1, j = 2 --> 9 > 14 --> false --> j = 3 --> 14 > 23 --> false --> arrayTestFour = [0, 12, 9, 14, 23]
+// i = 1, j = 3 --> 14 > 23 --> false --> j = 4 --> 23 > undefined --> false --> arrayTestFour = [0, 12, 9, 14, 23]
+
+// i = 2, j = 0 --> 0 > 12 --> false --> j = 1 --> 12 > 9 --> true --> temp = 12 --> arrayTestFour = [0, 9, 12, 14, 23]
+// i = 2, j = 1 --> 9 > 12 --> false --> j = 2 --> 12 > 14 --> false --> arrayTestFour = [0, 9, 12, 14, 23]
+// i = 2, j = 2 --> 12 > 14 --> false --> j = 3 --> 14 > 23 --> false --> arrayTestFour = [0, 9, 12, 14, 23]
+// i = 2, j = 3 --> 14 > 23 --> false --> j = 4 --> 23 > undefined --> false --> arrayTestFour = [0, 9, 12, 14, 23]
+
+// i = 3, j = 0 --> 0 > 9 --> false --> j = 1 --> 9 > 12 --> false --> arrayTestFour = [0, 9, 12, 14, 23]
+// i = 3, j = 1 --> 9 > 12 --> false --> j = 2 --> 12 > 14 --> false --> arrayTestFour = [0, 9, 12, 14, 23]
+// i = 3, j = 2 --> 12 > 14 --> false --> j = 3 --> 14 > 23 --> false --> arrayTestFour = [0, 9, 12, 14, 23]
+// i = 3, j = 3 --> 14 > 23 --> false --> j = 4 --> 23 > undefined --> false --> arrayTestFour = [0, 9, 12, 14, 23]
+
+// i = 4, j = 0 --> 0 > 9 --> false --> j = 1 --> 9 > 12 --> false --> arrayTestFour = [0, 9, 12, 14, 23]
+// i = 4, j = 1 --> 9 > 12 --> false --> j = 2 --> 12 > 14 --> false --> arrayTestFour = [0, 9, 12, 14, 23]
+// i = 4, j = 2 --> 12 > 14 --> false --> j = 3 --> 14 > 23 --> false --> arrayTestFour = [0, 9, 12, 14, 23]
+// i = 4, j = 3 --> 14 > 23 --> false --> j = 4 --> 23 > undefined --> false --> arrayTestFour = [0, 9, 12, 14, 23]
+
+
+// method 3 : Merge Sort
+let arrayTestFive = [0, 23, 14, 12, 9]
+let outputFourteen = []
+for (let i = 0; i < arrayTestFive.length; i++) {
+  for (let j = 0; j < arrayTestFive.length; j++) {
+    if (arrayTestFive[j] > arrayTestFive[j+1]) {
+      let temp = arrayTestFive[j]
+      arrayTestFive[j] = arrayTestFive[j+1]
+      arrayTestFive[j+1] = temp
+    }
+  }
+}
+// i = 0, j = 0 --> 0 > 23 --> false --> j = 1 --> 23 > 14 --> true --> temp = 23 --> arrayTestFive = [0, 14, 23, 12, 9]
+// i = 0, j = 1 --> 14 > 23 --> false --> j = 2 --> 23 > 12 --> true --> temp = 23 --> arrayTestFive = [0, 14, 12, 23, 9]
+// i = 0, j = 2 --> 12 > 23 --> false --> j = 3 --> 23 > 9 --> true --> temp = 23 --> arrayTestFive = [0, 14, 12, 9, 23]
+// i = 0, j = 3 --> 9 > 23 --> false --> j = 4 --> 23 > undefined --> false --> arrayTestFive = [0, 14, 12, 9, 23]
+// i = 0, j = 4 --> 23 > undefined --> false --> arrayTestFive = [0, 14, 12, 9, 23]
+
+// i = 1, j = 0 --> 0 > 14 --> false --> j = 1 --> 14 > 12 --> true --> temp = 14 --> arrayTestFive = [0, 12, 14, 9, 23]
+// i = 1, j = 1 --> 12 > 14 --> false --> j = 2 --> 14 > 9 --> true --> temp = 14 --> arrayTestFive = [0, 12, 9, 14, 23]
+// i = 1, j = 2 --> 9 > 14 --> false --> j = 3 --> 14 > 23 --> false --> arrayTestFive = [0, 12, 9, 14, 23]
+// i = 1, j = 3 --> 14 > 23 --> false --> j = 4 --> 23 > undefined --> false --> arrayTestFive = [0, 12, 9, 14, 23]
+// i = 1, j = 4 --> 23 > undefined --> false --> arrayTestFive = [0, 12, 9, 14, 23]
+
+// i = 2, j = 0 --> 0 > 12 --> false --> j = 1 --> 12 > 9 --> true --> temp = 12 --> arrayTestFive = [0, 9, 12, 14, 23]
+// i = 2, j = 1 --> 9 > 12 --> false --> j = 2 --> 12 > 14 --> false --> arrayTestFive = [0, 9, 12, 14, 23]
+// i = 2, j = 2 --> 12 > 14 --> false --> j = 3 --> 14 > 23 --> false --> arrayTestFive = [0, 9, 12, 14, 23]
+// i = 2, j = 3 --> 14 > 23 --> false --> j = 4 --> 23 > undefined --> false --> arrayTestFive = [0, 9, 12, 14, 23]
+// i = 2, j = 4 --> 23 > undefined --> false --> arrayTestFive = [0, 9, 12, 14, 23]
+
+// i = 3, j = 0 --> 0 > 9 --> false --> j = 1 --> 9 > 12 --> false --> arrayTestFive = [0, 9, 12, 14, 23]
+// i = 3, j = 1 --> 9 > 12 --> false --> j = 2 --> 12 > 14 --> false --> arrayTestFive = [0, 9, 12, 14, 23]
+// i = 3, j = 2 --> 12 > 14 --> false --> j = 3 --> 14 > 23 --> false --> arrayTestFive = [0, 9, 12, 14, 23]
+// i = 3, j = 3 --> 14 > 23 --> false --> j = 4 --> 23 > undefined --> false --> arrayTestFive = [0, 9, 12, 14, 23]
+// i = 3, j = 4 --> 23 > undefined --> false --> arrayTestFive = [0, 9, 12, 14, 23]
+
+// i = 4, j = 0 --> 0 > 9 --> false --> j = 1 --> 9 > 12 --> false --> arrayTestFive = [0, 9, 12, 14, 23]
+// i = 4, j = 1 --> 9 > 12 --> false --> j = 2 --> 12 > 14 --> false --> arrayTestFive = [0, 9, 12, 14, 23]
+// i = 4, j = 2 --> 12 > 14 --> false --> j = 3 --> 14 > 23 --> false --> arrayTestFive = [0, 9, 12, 14, 23]
+// i = 4, j = 3 --> 14 > 23 --> false --> j = 4 --> 23 > undefined --> false --> arrayTestFive = [0, 9, 12, 14, 23]
+// i = 4, j = 4 --> 23 > undefined --> false --> arrayTestFive = [0, 9, 12, 14, 23]
+
+// method 4 : Insertion Sort
+let arrayTestSix = [0, 23, 14, 12, 9]
+let outputFifteen = []
+for (let i = 0; i < arrayTestSix.length; i++) {
+  let temp = arrayTestSix[i]
+  let j = i - 1
+  while (j >= 0 && arrayTestSix[j] > temp) {
+    arrayTestSix[j+1] = arrayTestSix[j]
+    j--
+  }
+  arrayTestSix[j+1] = temp
+}
+// i = 0 --> temp = 0 --> j = -1 --> -1 >= 0 --> false --> arrayTestSix = [0, 23, 14, 12, 9]
+// i = 1 --> temp = 23 --> j = 0 --> 0 >= 0 --> true --> arrayTestSix = [0, 23, 14, 12, 9]
+// i = 1 --> temp = 23 --> j = -1 --> -1 >= 0 --> false --> arrayTestSix = [0, 23, 14, 12, 9]
+// i = 2 --> temp = 14 --> j = 1 --> 1 >= 0 --> true --> arrayTestSix = [0, 23, 23, 12, 9]
+// i = 2 --> temp = 14 --> j = 0 --> 0 >= 0 --> true --> arrayTestSix = [0, 14, 23, 12, 9]
+// i = 2 --> temp = 14 --> j = -1 --> -1 >= 0 --> false --> arrayTestSix = [0, 14, 23, 12, 9]
+// i = 3 --> temp = 12 --> j = 2 --> 2 >= 0 --> true --> arrayTestSix = [0, 14, 23, 23, 9]
+// i = 3 --> temp = 12 --> j = 1 --> 1 >= 0 --> true --> arrayTestSix = [0, 14, 14, 23, 9]
+// i = 3 --> temp = 12 --> j = 0 --> 0 >= 0 --> true --> arrayTestSix = [0, 12, 14, 23, 9]
+// i = 3 --> temp = 12 --> j = -1 --> -1 >= 0 --> false --> arrayTestSix = [0, 12, 14, 23, 9]
+// i = 4 --> temp = 9 --> j = 3 --> 3 >= 0 --> true --> arrayTestSix = [0, 12, 14, 23, 23]
+// i = 4 --> temp = 9 --> j = 2 --> 2 >= 0 --> true --> arrayTestSix = [0, 12, 14, 14, 23]
+// i = 4 --> temp = 9 --> j = 1 --> 1 >= 0 --> true --> arrayTestSix = [0, 12, 12, 14, 23]
+// i = 4 --> temp = 9 --> j = 0 --> 0 >= 0 --> true --> arrayTestSix = [0, 9, 12, 14, 23]
+// i = 4 --> temp = 9 --> j = -1 --> -1 >= 0 --> false --> arrayTestSix = [0, 9, 12, 14, 23]
+```
