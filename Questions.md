@@ -146,6 +146,7 @@ for (let i = 0; i < arrayTestTwo.length; i++) {
 ```
 
 ## 4 program to sort an array in ascending order
+![image](https://github.com/prashanthganji2021/Documents/assets/111948535/c9b0e9ad-498a-43c8-8e7c-86186c618017)
 
 ``` javascript
 
