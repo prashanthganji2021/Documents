@@ -55,19 +55,6 @@
 - `second?: string`: The second formatting style used.
 - `timeZoneName?: string`: The time zone name formatting style used.
 
-
-## Extensions to Date
-
--  `toLocaleString(locales?: string | string[], options?: Intl.DateTimeFormatOptions): string`
-
-Converts a date and time to a string by using the current or specified locale.
-- `toLocaleDateString(locales?: string | string[], options?: Intl.DateTimeFormatOptions): string`
-
-Converts a date to a string by using the current or specified locale.
-- `toLocaleTimeString(locales?: string | string[], options?: Intl.DateTimeFormatOptions): string`
-
-
-
 ## Functions
 
 - `eval(x: string): any`: Evaluates and executes JavaScript code provided as a string parameter.
@@ -154,22 +141,6 @@ Represents the constructor function for the `Object` class.
 - `substr(from: number, length?: number): string`: Gets a substring beginning at the specified location and having the specified length.
 - `valueOf(): string`: Returns the primitive value of the specified object.
 
-## Interface: StringConstructor
-
-- `new(value?: any): String`: Creates a new String object.
-- `(value?: any): string`: Creates a new string.
-- `prototype: String`: Represents the prototype object of the String constructor.
-- `fromCharCode(...codes: number[]): string`: Creates a string from a sequence of Unicode character codes.
-
-## Interface: Boolean
-
-- `valueOf(): boolean`: Returns the primitive value of the specified object.
-
-## Interface: BooleanConstructor
-
-- `new(value?: any): Boolean`: Creates a new Boolean object.
-- `<T>(value?: T): boolean`: Creates a new boolean.
-- `prototype: Boolean`: Represents the prototype object of the Boolean constructor.
 
 ## Interface: Number
 
@@ -269,50 +240,3 @@ The `Date` interface enables basic storage and retrieval of dates and times.
 - `toISOString(): string`: Returns a date as a string value in ISO format.
 - `toJSON(key?: any): string`: Used by the JSON.stringify method to enable the transformation of an object's data for JavaScript Object Notation (JSON) serialization.
 
-
-### `CollatorOptions`
-
-- `usage?: "sort" | "search"`: Specifies the intended usage of the collator.
-- `localeMatcher?: "lookup" | "best fit"`: Specifies the algorithm used to match locale tags.
-- `numeric?: boolean`: Specifies whether numeric collation should be used.
-- `caseFirst?: "upper" | "lower" | "false"`: Specifies the case ordering preference.
-- `sensitivity?: "base" | "accent" | "case" | "variant"`: Specifies the comparison sensitivity.
-- `collation?: "big5han" | "compat" | "dict" | "direct" | "ducet" | "emoji" | "eor" | "gb2312" | "phonebk" | "phonetic" | "pinyin" | "reformed" | "searchjl" | "stroke" | "trad" | "unihan" | "zhuyin"`: Specifies the collation type.
-- `ignorePunctuation?: boolean`: Specifies whether punctuation should be ignored.
-
-### `ResolvedCollatorOptions`
-
-- `locale: string`: The actual locale used.
-- `usage: string`: The actual usage of the collator.
-- `sensitivity: string`: The actual comparison sensitivity.
-- `ignorePunctuation: boolean`: Indicates whether punctuation is ignored.
-- `collation: string`: The actual collation type.
-- `caseFirst: string`: The actual case ordering preference.
-- `numeric: boolean`: Indicates whether numeric collation is used.
-
-
-### `NumberFormatOptions`
-
-- `localeMatcher?: string`: Specifies the algorithm used to match locale tags.
-- `style?: string`: Specifies the number formatting style.
-- `currency?: string`: Specifies the currency code.
-- `currencySign?: string`: Specifies the currency sign formatting.
-- `useGrouping?: boolean`: Specifies whether to use grouping separators.
-- `minimumIntegerDigits?: number`: Specifies the minimum number of integer digits.
-- `minimumFractionDigits?: number`: Specifies the minimum number of fraction digits.
-- `maximumFractionDigits?: number`: Specifies the maximum number of fraction digits.
-- `minimumSignificantDigits?: number`: Specifies the minimum number of significant digits.
-- `maximumSignificantDigits?: number`: Specifies the maximum number of significant digits.
-
-### `ResolvedNumberFormatOptions`
-
-- `locale: string`: The actual locale used.
-- `numberingSystem: string`: The numbering system used.
-- `style: string`: The number formatting style.
-- `currency?: string`: The currency code used.
-- `minimumIntegerDigits: number`: The minimum number of integer digits.
-- `minimumFractionDigits: number`: The minimum number of fraction digits.
-- `maximumFractionDigits: number`: The maximum number of fraction digits.
-- `minimumSignificantDigits?: number`: The minimum number of significant digits.
-- `maximumSignificantDigits?: number`: The maximum number of significant digits.
-- `useGrouping: boolean`: Indicates whether grouping separators are used.
