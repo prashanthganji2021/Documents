@@ -455,3 +455,20 @@ console.log(findSmallestInteger(arr5)); // Output: 22
 //  result = 16 , num = 6 --> 6 > 16 --> false --> result = 16 + 6 = 22
 //  result = 22 , num = undefined --> false --> result = 22
 ```
+
+## 8. [1, [2, [3, 4]]] --> [1, 2, 3, 4]
+
+```javascript
+let arr = [1, [2, [3, 4]]]
+let res = []
+function flat(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    if (Array.isArray(arr[i])) {
+      flat(arr[i])
+    } else {
+      res.push(arr[i])
+    }
+  }
+}
+```
+
